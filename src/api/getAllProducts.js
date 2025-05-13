@@ -1,5 +1,6 @@
-export async function getAllProducts() {
-    const res = await fetch("https://jsonplaceholder.typicode.com/posts")
-    const data = await res.json()
-    return data
+import { fetchServerData } from "./httpHelper"
+export function getAllProducts(queries = "") {
+
+    const ENDPOINT = `/products${queries}`
+    return fetchServerData(ENDPOINT, ["products"])
 }

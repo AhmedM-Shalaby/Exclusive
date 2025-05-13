@@ -4,8 +4,15 @@ import Myinput from "@/components/Myinput/myInput";
 import { useFormik } from "formik";
 import Link from "next/link";
 import { schemaSignUp, signUpInputs } from "../AuthConstants";
+import Cookies from "js-cookie";
+import { toast } from "react-toastify";
+import { useUserStore } from "@/store/user_store";
+import { useRouter } from "next/navigation";
+import { signUP } from "@/app/actions/Auth/signUp";
 
 function FormSignUp() {
+  const { setToken } = useUserStore();
+  const router = useRouter();
   const initialValues = {
     name: "",
     email: "",
@@ -14,18 +21,17 @@ function FormSignUp() {
     phone: "",
   };
   const onSubmit = async (values) => {
-    const res = await fetch(
-      "https://ecommerce.routemisr.com/api/v1/auth/signup",
-      {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(values),
-      }
-    );
-    const data = await res.json();
-    console.log(data);
+    const data = await signUP(values);
+    if (data.token !== undefined) {
+      Cookies.set("token", data.token, { expires: 7, path: "/" });
+      const name = data.user.name.split(" ").slice(0, 1).join(" ");
+      setToken(data.token);
+      toast.success(`${data.message} , Hello  ${name}`);
+      router.push("/");
+    }
+    if (data.statusMsg == "fail") {
+      toast.error(data.message);
+    }
   };
   const MyForm = useFormik({
     initialValues,
@@ -41,7 +47,7 @@ function FormSignUp() {
     errors: MyForm.errors,
   };
   return (
-    <div className="m-[20%]">
+    <div className="m-[5%] md:m[20%]">
       <h1 className="text-[36px] mb-4">Create an account</h1>
       <p className="mb-4">Enter your details below</p>
       <form onSubmit={MyForm.handleSubmit}>

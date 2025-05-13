@@ -22,6 +22,5 @@ function Myinput({ type, name, holder, func }) {
     </div>
   );
 }
-w;
 
 export default Myinput;
