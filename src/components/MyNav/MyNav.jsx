@@ -45,7 +45,7 @@ function MyNav() {
     { name: "Home", path: "/" },
     { name: "Products", path: "/products" },
     { name: "About", path: "/about" },
-    { name: "Contant", path: "/contant" },
+    { name: "Contact", path: "/contact" },
   ];
   const [active, setActive] = useState(null);
   const [menu, setMenu] = useState(false);

@@ -1,25 +1,39 @@
 import { getAllProducts } from "@/api/getAllProducts";
-import Card from "@/components/Card/Card";
+import MyPagination from "@/components/Pagination/Pagination";
+import Card from "@/components/Products/Card/Card";
+import FilterPoducts from "@/components/Products/Filter/FilterProducts";
 
-async function products() {
-  const searchParmes = { title: "test" };
-  const queries = `?limit=6&sort=-sold&price[gte]=100&page=2`;
+async function products({ searchParams }) {
+  const { limit, sort, category, page } = await searchParams;
+  const queries = `?limit=${limit || "6"}&page=${page || 1}${
+    sort ? `&sort=${sort}` : ""
+  }${category ? `&category[in]=${category}` : ""}`;
 
-  const { data } = await getAllProducts(queries);
-  console.log(data);
+  const { data, metadata, results } = await getAllProducts(queries);
+
   return (
-    <div className="container m-auto bg-[#f0f0f0] p-4">
+    <div className="container m-auto bg-[#f0f0f0] p-4 truncate">
       <h1 className="text-2xl font-bold my-4  ">All products</h1>
-      <div className="flex gap-4">
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-4 gap-4 w-[70%] ">
-          {data.map((product) => {
-            return <Card key={product.id} product={product} />;
-          })}
+      <div className="mb-10 relative">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4  w-full">
+          {results !== 0 ? (
+            data.map((product) => {
+              return <Card key={product.id} product={product} />;
+            })
+          ) : (
+            <h1 className="text-5xl h-[800px]">Not Found This Data</h1>
+          )}
         </div>
-        <div className="w-[30%] bg-white p-4">
-          <h1 className="text-xl font-bold">Filter</h1>
-          {/* <Filter /> */}
-        </div>
+
+        <>
+          <FilterPoducts limitLength={results} />
+        </>
+      </div>
+      <div className="mb-10">
+        <MyPagination
+          totalPages={metadata.numberOfPages}
+          currentPage={metadata.currentPage}
+        />
       </div>
     </div>
   );

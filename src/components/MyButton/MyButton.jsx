@@ -2,7 +2,6 @@ export default function MyButtons({
   context,
   click,
   textColor = "#ffffff",
-  bgcolor = "var(--main-color)",
   state = "button",
   width = "100%",
   customStyle = {},
@@ -14,10 +13,9 @@ export default function MyButtons({
       style={{
         color: textColor,
         width,
-        backgroundColor: bgcolor,
         ...customStyle,
       }}
-      className={` my-4 p-4  cursor-pointer`}
+      className={` my-4 p-4  cursor-pointer bg-[var(--main-color)]`}
     >
       {context}
     </button>

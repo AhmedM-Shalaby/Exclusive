@@ -61,7 +61,7 @@ function Login() {
           <MyButtons context="Login" state="submit" width="50%" />
           <MyButtons
             context={"Forget Password ?"}
-            bgcolor="transparent"
+            customStyle={{ backgroundColor: "transparent" }}
             textColor="var(--main-color)"
           />
         </div>

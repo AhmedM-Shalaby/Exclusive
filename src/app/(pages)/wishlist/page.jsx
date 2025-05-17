@@ -1,6 +1,6 @@
 import getUserWishlist from "@/app/actions/wishlist/getUserWishlist";
-import Card from "@/components/Card/Card";
 import MyButtons from "@/components/MyButton/MyButton";
+import Card from "@/components/Products/Card/Card";
 import { cookies } from "next/headers";
 import Link from "next/link";
 

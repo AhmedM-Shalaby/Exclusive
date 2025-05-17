@@ -1,5 +1,6 @@
 import { gatCategoy } from "@/api/getCategory";
 import MySlider from "@/components/slider/slider";
+import Image from "next/image";
 
 async function Categories() {
   const res = await gatCategoy();
@@ -7,7 +8,7 @@ async function Categories() {
   const content = category.map((obj, index) => (
     <div key={index} className=" ">
       <div className="h-[170px] ">
-        <img src={obj.image} alt={obj.name} />
+        <Image src={obj.image} alt={obj.name} width={600} height={900} />
       </div>
       <p className="text-black text-center mt-4"> {obj.name}</p>
     </div>

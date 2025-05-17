@@ -16,28 +16,36 @@ function CountCard() {
     }
   };
   return (
-    <div>
-      <div>
-        <label htmlFor="Quantity" className="sr-only">
-          {" "}
-          Quantity{" "}
-        </label>
-
-        <div className="flex items-center gap-1">
-          <MyButtons
-            context={"-"}
-            width="20%"
-            click={() => handelDecrementCount()}
-            customStyle={{ borderRadius: "10px", fontSize: "24px" }}
-          />
-          <p className="w-50 text-center">{count}</p>
-          <MyButtons
-            context={"+"}
-            width="20%"
-            click={() => handelIncrementCount()}
-            customStyle={{ borderRadius: "10px", fontSize: "24px" }}
-          />
-        </div>
+    <div className="flex items-center justify-center border rounded-[5px] border-gray-500">
+      <div className="border-r border-gray-500">
+        <MyButtons
+          context={"-"}
+          click={() => handelDecrementCount()}
+          width="fit-content"
+          bgcolor="bg-white"
+          customStyle={{
+            borderRadius: "5px",
+            padding: "5px 10px",
+            fontSize: "20px",
+            margin: "0",
+            backgroundColor: "#ffffff",
+            color: "#000",
+          }}
+        />
+      </div>
+      <p className="grow-1 text-center">{count}</p>
+      <div className="border-l border-gray-500">
+        <MyButtons
+          context={"+"}
+          click={() => handelIncrementCount()}
+          customStyle={{
+            borderTopRightRadius: "5px",
+            borderBottomRightRadius: "5px",
+            padding: "5px 10px",
+            fontSize: "20px",
+            margin: "0",
+          }}
+        />
       </div>
     </div>
   );

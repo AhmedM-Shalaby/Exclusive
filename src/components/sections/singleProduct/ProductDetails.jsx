@@ -35,7 +35,12 @@ function ProductDetails({ product }) {
         >
           {product.images.map((productImage, index) => (
             <SwiperSlide key={index}>
-              <img src={productImage} />
+              <Image
+                src={productImage}
+                width={600}
+                height={900}
+                alt={product.name}
+              />
             </SwiperSlide>
           ))}
         </Swiper>
@@ -49,7 +54,12 @@ function ProductDetails({ product }) {
         >
           {product.images.map((productImage) => (
             <SwiperSlide key={Math.random(200)}>
-              <img src={productImage} />
+              <Image
+                src={productImage}
+                width={600}
+                height={900}
+                alt={product.name}
+              />
             </SwiperSlide>
           ))}
         </Swiper>

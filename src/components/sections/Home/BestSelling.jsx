@@ -2,7 +2,7 @@ import MySlider from "@/components/slider/slider";
 import { getBestSelling } from "@/api/getBestSelling";
 import Link from "next/link";
 import MyButtons from "../../MyButton/MyButton";
-import Card from "@/components/Card/Card";
+import Card from "@/components/Products/Card/Card";
 
 async function BestSelling() {
   const res = await getBestSelling();

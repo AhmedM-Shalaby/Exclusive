@@ -1,11 +1,15 @@
 import getProduct from "@/api/getProduct";
 import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
 import CountCard from "@/components/Count/Counter";
+import ButtonWishList from "@/components/MyButton/ButtonWishList";
 import MyButtons from "@/components/MyButton/MyButton";
 import SectionCreateion from "@/components/sections/CreateContent/CreationSection";
 import BestSelling from "@/components/sections/Home/BestSelling";
 import ProductDetails from "@/components/sections/singleProduct/ProductDetails";
 import { TiStarFullOutline } from "react-icons/ti";
+import { CiDeliveryTruck } from "react-icons/ci";
+import { GiReturnArrow } from "react-icons/gi";
+
 const components = {
   bestSelling: <BestSelling />,
 };
@@ -14,7 +18,6 @@ export default async function productID(props) {
   const params = await props.params;
   const id = params.id;
   const product = await getProduct(id);
-  console.log(id);
 
   const crumbs = [
     { name: "Home", path: "/" },
@@ -51,6 +54,7 @@ export default async function productID(props) {
                 <span className="text-[#00FF66]"> In Stock</span>{" "}
               </span>
             </div>
+            <p>{product.description}</p>
             <div className="price flex gap-6">
               <p className="text-[24px] mb-4">
                 $
@@ -76,12 +80,42 @@ export default async function productID(props) {
                 </p>
               )}
             </div>
-            <>
-              <CountCard />
-            </>
-            <p>{product.description}</p>
-            <div>
-              <MyButtons context={"Buy Now"} />
+
+            <div className="flex justify-center items-center gap-4">
+              <div className="flex-1">
+                <CountCard />
+              </div>
+              <div className="flex-2">
+                <MyButtons context={"Buy Now"} />
+              </div>
+              <div className="border-2 border-gray-500 rounded-full ">
+                <ButtonWishList id={id} />
+              </div>
+            </div>
+            <div className="border border-black cursor-pointer">
+              <div className="flex justify-around items-center p-4">
+                <div className="text-4xl mr-4">
+                  <CiDeliveryTruck />
+                </div>
+                <div className="flex-1 font-semibold">
+                  <p className="text-lg ">Free Delivery</p>
+                  <p className="text-xs underline">
+                    Enter your postal code for Delivery Availability
+                  </p>
+                </div>
+              </div>
+              <div className="w-full h-px bg-black"></div>
+              <div className="flex justify-around items-center p-4">
+                <div className="text-3xl mr-4">
+                  <GiReturnArrow />
+                </div>
+                <div className="flex-1 font-semibold">
+                  <p className="text-lg ">Return Delivery</p>
+                  <p className="text-xs">
+                    Free 30 Days Delivery Returns. Details
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>

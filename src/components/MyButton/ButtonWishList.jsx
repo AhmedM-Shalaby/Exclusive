@@ -25,7 +25,9 @@ function ButtonWishList({ id }) {
     <button
       type="button"
       className={`p-3 rounded-[50%] cursor-pointer transition-all duration-300 ${
-        isActive ? "bg-red-500 text-white" : "bg-white"
+        isActive
+          ? "bg-red-500 text-white"
+          : "bg-white hover:bg-red-500 hover:text-white"
       }`}
       onClick={handleAddWishList}
     >
