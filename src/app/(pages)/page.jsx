@@ -1,6 +1,8 @@
 import SectionCreateion from "@/components/sections/CreateContent/CreationSection";
 import BestSelling from "@/components/sections/Home/BestSelling";
 import Categories from "@/components/sections/Home/Categories";
+import Offer from "@/components/sections/Home/Offer";
+import TimeDown from "@/components/sections/Home/TimeDown";
 
 const components = {
   categories: <Categories />,
@@ -19,14 +21,10 @@ async function Home() {
       head: " Browse By Category ",
       section: "categories",
     },
-    {
-      title: "heelo",
-      head: " price ",
-      section: "teeeeests",
-    },
   ];
   return (
-    <div className="w-full max-w-[1800px] mx-auto px-4  relative">
+    <div className="container m-auto px-4  relative">
+      <Offer />
       {Sections.map((obj, index) => {
         return (
           <SectionCreateion
@@ -38,6 +36,7 @@ async function Home() {
           </SectionCreateion>
         );
       })}
+      <TimeDown />
     </div>
   );
 }

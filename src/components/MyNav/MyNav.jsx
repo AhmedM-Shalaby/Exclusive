@@ -6,14 +6,16 @@ import { SlMenu, SlLogout } from "react-icons/sl";
 import { FaShoppingCart } from "react-icons/fa";
 import { useUserStore } from "@/store/user_store";
 import { CiHeart } from "react-icons/ci";
-import { useWishListStore } from "@/store/wishList_store";
 import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
+import { useCartStore } from "@/store/cart_store";
+import { useWishListStore } from "@/store/wishList_store";
 
 function MyNav() {
   const { token, setToken, initTokenFromCookie } = useUserStore();
   const [scrolled, setScrolled] = useState(false);
   const { count, fetchWishList } = useWishListStore();
+  const { numOfCartItems, fetchCart } = useCartStore();
   const [isMounted, setIsMounted] = useState(false);
   const router = useRouter();
 
@@ -35,6 +37,7 @@ function MyNav() {
     initTokenFromCookie();
     if (token) {
       fetchWishList(token);
+      fetchCart(token);
     }
 
     return () => {
@@ -124,18 +127,24 @@ function MyNav() {
                   <FaUserLarge size={25} />
                 </button>
                 <div className="relative">
-                  <FaShoppingCart size={25} />
-                  <p className="text-white bg-[var(--main-color)] flex justify-center items-center text-[10px] absolute top-[-10px] right-[-10px] rounded-[50%] w-[17px] h-[17px]">
-                    0
-                  </p>
+                  <Link href={"/cart"}>
+                    <FaShoppingCart size={25} />
+                  </Link>
+                  {numOfCartItems !== 0 && (
+                    <p className="text-white bg-[var(--main-color)] flex justify-center items-center text-[10px] absolute top-[-10px] right-[-10px] rounded-[50%] w-[17px] h-[17px]">
+                      {numOfCartItems}
+                    </p>
+                  )}
                 </div>
                 <div className="relative">
                   <Link href={"/wishlist"}>
                     <CiHeart size={25} />
                   </Link>
-                  <p className="text-white bg-[var(--main-color)] flex justify-center items-center text-[10px] absolute top-[-10px] right-[-10px] rounded-[50%] w-[17px] h-[17px]">
-                    {count}
-                  </p>
+                  {count !== 0 && (
+                    <p className="text-white bg-[var(--main-color)] flex justify-center items-center text-[10px] absolute top-[-10px] right-[-10px] rounded-[50%] w-[17px] h-[17px]">
+                      {count}
+                    </p>
+                  )}
                 </div>
                 <div
                   className={`absolute top-[60px]  md:top-[30px] z-10 mt-0.5 w-56 divide-y divide-gray-100 rounded-md border border-gray-100 bg-white shadow-lg transition-all duration-300 ease-in-out  ${

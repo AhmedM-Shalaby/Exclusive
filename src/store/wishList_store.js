@@ -22,9 +22,7 @@ export const useWishListStore = create((set) => ({
     },
     addProduct: async (id, token) => {
         const res = await addToWishlist(id, token)
-        toast.success(res.message, {
-            autoClose: 500
-        })
+        toast.success(res.message)
         set(state => {
             return {
                 count: state.count + 1,
@@ -34,9 +32,7 @@ export const useWishListStore = create((set) => ({
     },
     removeProduct: async (id, token) => {
         const res = await deleteWishList(id, token)
-        toast.success(res.message, {
-            autoClose: 500
-        })
+        toast.success(res.message)
         set(state => {
             const newActiveIds = state.activeIds.filter(active => active !== id)
             return {

@@ -3,6 +3,7 @@ import "./globals.css";
 import MyNav from './../components/MyNav/MyNav';
 import Footer from "@/components/Footer/footer";
 import { Flip, ToastContainer } from "react-toastify";
+import HeaderPage from "@/components/sections/Home/Header";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -26,12 +27,15 @@ export default function RootLayout({ children }) {
         className={`${geistSans.variable} ${geistMono.variable}
         `}
       >
+        <HeaderPage />
         <MyNav />
         <div className="w-full h-[64px]"></div>
-        {children}
+        <div className=" min-h-[850px] pb-24">
+          {children}
+        </div>
         <ToastContainer
           position="top-right"
-          autoClose={1500}
+          autoClose={400}
           hideProgressBar={false}
           newestOnTop={false}
           closeOnClick={false}

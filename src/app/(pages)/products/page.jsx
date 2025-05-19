@@ -5,7 +5,7 @@ import FilterPoducts from "@/components/Products/Filter/FilterProducts";
 
 async function products({ searchParams }) {
   const { limit, sort, category, page } = await searchParams;
-  const queries = `?limit=${limit || "6"}&page=${page || 1}${
+  const queries = `?limit=${limit || "8"}&page=${page || 1}${
     sort ? `&sort=${sort}` : ""
   }${category ? `&category[in]=${category}` : ""}`;
 
@@ -15,7 +15,7 @@ async function products({ searchParams }) {
     <div className="container m-auto bg-[#f0f0f0] p-4 truncate">
       <h1 className="text-2xl font-bold my-4  ">All products</h1>
       <div className="mb-10 relative">
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4  w-full">
+        <div className="grid grid-cols-1 sm:grid-cols-2  md:grid-cols-2 lg:grid-cols-4  gap-4  w-full">
           {results !== 0 ? (
             data.map((product) => {
               return <Card key={product.id} product={product} />;

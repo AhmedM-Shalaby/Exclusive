@@ -3,6 +3,7 @@ import { IoMdEye } from "react-icons/io";
 import Link from "next/link";
 import ButtonWishList from "@/components/MyButton/ButtonWishList";
 import Image from "next/image";
+import ButtonCart from "@/components/MyButton/ButtonCart";
 
 function Card({ product }) {
   const { id, imageCover, title, price, priceAfterDiscount, ratingsAverage } =
@@ -37,13 +38,7 @@ function Card({ product }) {
         ) : (
           ""
         )}
-        <button
-          className="absolute bottom-[-100%] w-full py-4 px-2 bg-black text-white rounded-b-[5px] cursor-pointer
-
-        transition-all duration-300 group-hover:bottom-0"
-        >
-          Add To Cart
-        </button>
+        <ButtonCart id={id} count={1} />
       </div>
       <div className="content">
         <p>{title.split(" ").slice(0, 3).join(" ")}</p>

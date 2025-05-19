@@ -11,6 +11,7 @@ async function addToWishlist(id, token) {
             "token": token,
         },
         body: JSON.stringify({ productId: id }),
+        cache: "no-store",
     };
     const result = await fetchServerData(ENDPOINT, options)
     revalidateTag("wishList")

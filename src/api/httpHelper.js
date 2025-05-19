@@ -13,9 +13,8 @@ export async function fetchServerData(endpoint, options = {}, tags = []) {
     const startTime = performance.now();
 
     const res = await fetch(URL, apiOptions);
+    const data = await res.json();
 
-    const data = await res.json()
-    console.log(data)
     // const endTime = performance.now();
     // const duration = endTime - startTime;
     // console.log(`✅ [fetchServerData] ${endpoint} took ${duration.toFixed(2)} ms`);

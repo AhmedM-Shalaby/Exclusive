@@ -9,7 +9,7 @@ function pageAuth({ children }) {
             src="/img1.jpg"
             width={805}
             height={781}
-            alt="test"
+            alt="Phone"
             className="w-full"
           />
         </div>

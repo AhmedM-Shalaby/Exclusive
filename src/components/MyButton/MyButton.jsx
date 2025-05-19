@@ -1,6 +1,7 @@
 export default function MyButtons({
   context,
   click,
+  isDisabled = false,
   textColor = "#ffffff",
   state = "button",
   width = "100%",
@@ -9,6 +10,7 @@ export default function MyButtons({
   return (
     <button
       type={state}
+      disabled={isDisabled}
       onClick={click}
       style={{
         color: textColor,

@@ -21,7 +21,7 @@ function Teams() {
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 my-20">
       {MyTeams.map((person) => (
-        <div>
+        <div key={person.name}>
           <div className="bg-[#F5F5F5] p-4 justify-items-center">
             <Image
               src={person.imagePath}

@@ -1,14 +1,12 @@
 import getProduct from "@/api/getProduct";
 import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
-import CountCard from "@/components/Count/Counter";
-import ButtonWishList from "@/components/MyButton/ButtonWishList";
-import MyButtons from "@/components/MyButton/MyButton";
 import SectionCreateion from "@/components/sections/CreateContent/CreationSection";
 import BestSelling from "@/components/sections/Home/BestSelling";
 import ProductDetails from "@/components/sections/singleProduct/ProductDetails";
 import { TiStarFullOutline } from "react-icons/ti";
 import { CiDeliveryTruck } from "react-icons/ci";
 import { GiReturnArrow } from "react-icons/gi";
+import ActionSingleProduct from "@/components/Products/ActionSingleProduct/ActionSingleProduct";
 
 const components = {
   bestSelling: <BestSelling />,
@@ -82,15 +80,7 @@ export default async function productID(props) {
             </div>
 
             <div className="flex justify-center items-center gap-4">
-              <div className="flex-1">
-                <CountCard />
-              </div>
-              <div className="flex-2">
-                <MyButtons context={"Buy Now"} />
-              </div>
-              <div className="border-2 border-gray-500 rounded-full ">
-                <ButtonWishList id={id} />
-              </div>
+              <ActionSingleProduct id={id} />
             </div>
             <div className="border border-black cursor-pointer">
               <div className="flex justify-around items-center p-4">

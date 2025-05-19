@@ -37,9 +37,10 @@ function ProductDetails({ product }) {
             <SwiperSlide key={index}>
               <Image
                 src={productImage}
+                alt={product.title}
                 width={600}
                 height={900}
-                alt={product.name}
+                priority
               />
             </SwiperSlide>
           ))}
@@ -56,9 +57,9 @@ function ProductDetails({ product }) {
             <SwiperSlide key={Math.random(200)}>
               <Image
                 src={productImage}
+                alt={product.title}
                 width={600}
                 height={900}
-                alt={product.name}
               />
             </SwiperSlide>
           ))}

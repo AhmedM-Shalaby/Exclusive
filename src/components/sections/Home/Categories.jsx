@@ -1,6 +1,7 @@
 import { gatCategoy } from "@/api/getCategory";
 import MySlider from "@/components/slider/slider";
 import Image from "next/image";
+import Link from "next/link";
 
 async function Categories() {
   const res = await gatCategoy();
@@ -10,7 +11,9 @@ async function Categories() {
       <div className="h-[170px] ">
         <Image src={obj.image} alt={obj.name} width={600} height={900} />
       </div>
-      <p className="text-black text-center mt-4"> {obj.name}</p>
+      <Link href={`/products?category=${obj._id}`}>
+        <p className="text-black text-center mt-4"> {obj.name}</p>
+      </Link>
     </div>
   ));
   return (

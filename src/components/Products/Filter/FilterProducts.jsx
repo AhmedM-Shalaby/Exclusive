@@ -14,7 +14,7 @@ function FilterPoducts({ limitLength }) {
   const [active, setActive] = useState(false);
   const router = useRouter();
   const initialValues = {
-    rangeLimit: "6",
+    rangeLimit: "8",
     sortBy: "",
     category: "",
   };
@@ -33,9 +33,7 @@ function FilterPoducts({ limitLength }) {
     }
 
     const query = params.toString();
-    console.log("isClick");
     setActive(!active);
-    console.log("isClick");
     router.push(`/products?${query}`);
   };
   const MyFilterForm = useFormik({
