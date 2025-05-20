@@ -72,7 +72,7 @@ function Login() {
           />
         </div>
         <div className="text-center">
-          I Don't Have Any Account ?{" "}
+          I Don&lsquo;t Have Any Account ?{" "}
           <Link href={"/signUp"} className="text-[var(--main-color)]">
             Sign Up
           </Link>
