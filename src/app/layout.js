@@ -4,6 +4,7 @@ import MyNav from './../components/MyNav/MyNav';
 import Footer from "@/components/Footer/footer";
 import { Flip, ToastContainer } from "react-toastify";
 import HeaderPage from "@/components/sections/Home/Header";
+import ModelSearch from "@/components/MyNav/ModelSearch";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,7 +30,7 @@ export default function RootLayout({ children }) {
       >
         <HeaderPage />
         <MyNav />
-        <div className="w-full h-[64px]"></div>
+        <div className="w-full h-[100px]"></div>
         <div className=" min-h-[850px] pb-24">
           {children}
         </div>
@@ -46,6 +47,7 @@ export default function RootLayout({ children }) {
           theme="light"
           transition={Flip}
         />
+        <ModelSearch />
         <Footer />
       </body>
     </html>

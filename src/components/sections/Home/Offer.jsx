@@ -4,8 +4,6 @@ import Link from "next/link";
 
 async function Offer() {
   const { data } = await gatCategoy();
-  console.log(data);
-
   return (
     <>
       <div className="container m-auto flex flex-row mb-20">

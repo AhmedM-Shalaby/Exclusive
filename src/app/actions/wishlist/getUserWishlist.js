@@ -10,7 +10,7 @@ async function getUserWishlist(token) {
             "Content-Type": "application/json",
             "token": token,
         },
-        cache: "no-store"
+
     };
     const res = await fetchServerData(ENDPOINT, options, ["wishList"])
     return res

@@ -8,6 +8,7 @@ import { toast } from "react-toastify";
 import { useUserStore } from "@/store/user_store";
 import { useRouter } from "next/navigation";
 import { loginUser } from "@/app/actions/Auth/login";
+import Link from "next/link";
 
 function Login() {
   const { setToken } = useUserStore();
@@ -18,6 +19,9 @@ function Login() {
   };
   const onSubmit = async (values) => {
     const data = await loginUser(values);
+    console.log(10);
+    console.log(data);
+
     if (data.message == "success") {
       Cookies.set("token", data.token, { expires: 7, path: "/" });
       const name = data.user.name.split(" ").slice(0, 1).join(" ");
@@ -25,6 +29,8 @@ function Login() {
       toast.success(`${data.message} welcome Back ${name}`);
       router.push("/");
     } else {
+      console.log(data);
+
       toast.error(`${data.message}  `);
     }
   };
@@ -64,6 +70,12 @@ function Login() {
             customStyle={{ backgroundColor: "transparent" }}
             textColor="var(--main-color)"
           />
+        </div>
+        <div className="text-center">
+          I Don't Have Any Account ?{" "}
+          <Link href={"/signUp"} className="text-[var(--main-color)]">
+            Sign Up
+          </Link>
         </div>
       </form>
     </div>

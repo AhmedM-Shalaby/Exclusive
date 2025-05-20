@@ -12,12 +12,12 @@ function StateUs() {
       des: "Sallers active our site",
     },
     {
-      icon: <CiBadgeDollar size={50} c />,
+      icon: <CiBadgeDollar size={50} />,
       numberState: 33,
       des: "Mopnthly Produduct Sale",
     },
     {
-      icon: <CiBag1 size={50} c />,
+      icon: <CiBag1 size={50} />,
       numberState: 45.5,
       des: "Customer active in our site",
     },

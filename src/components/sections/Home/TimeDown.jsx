@@ -34,7 +34,6 @@ function TimeDown() {
     const interval = setInterval(updateCountdown, 1000);
     return () => clearInterval(interval);
   }, []);
-  console.log(timeLeft);
 
   return (
     <div className="flex gap-10 md:my-10 mt-10 items-center justify-around flex-col-reverse md:flex-row min-h-[500px] bg-black text-white">

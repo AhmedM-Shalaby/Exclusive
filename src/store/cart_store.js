@@ -13,8 +13,6 @@ export const useCartStore = create((set) => ({
     fetchCart: async (token) => {
         try {
             const res = await getUserCart(token);
-            console.log("get ", res);
-
             set({
                 numOfCartItems: res.numOfCartItems,
             });
@@ -25,8 +23,6 @@ export const useCartStore = create((set) => ({
     AddToCart: async (body, token) => {
         try {
             const res = await addToCart(body, token);
-            console.log("add ", res);
-
             toast.success(res.message);
             set(state => {
                 return {
@@ -41,7 +37,6 @@ export const useCartStore = create((set) => ({
     deleteProduct: async (ProductID, token) => {
         try {
             const res = await removeProductToCart(ProductID, token);
-            console.log("remove ", res);
             toast.success("Success");
             set(state => {
                 return {

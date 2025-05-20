@@ -11,6 +11,7 @@ async function deleteWishList(id, token) {
             "Content-Type": "application/json",
             "token": token,
         },
+        cache: "no-store"
     };
 
     const result = await fetchServerData(ENDPOINT, options);

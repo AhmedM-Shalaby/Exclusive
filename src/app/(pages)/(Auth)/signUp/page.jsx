@@ -63,7 +63,9 @@ function FormSignUp() {
         <MyButtons context={"Create Account"} state="submit" />
         <div className="flex justify-center gap-2">
           <p>Already have account ? </p>
-          <Link href="/login">Log in</Link>
+          <Link href="/login" className="text-[var(--main-color)]">
+            Log in
+          </Link>
         </div>
       </form>
     </div>

@@ -10,6 +10,7 @@ import { useRouter } from "next/navigation";
 import Cookies from "js-cookie";
 import { useCartStore } from "@/store/cart_store";
 import { useWishListStore } from "@/store/wishList_store";
+import SearchBar from "./searchBar";
 
 function MyNav() {
   const { token, setToken, initTokenFromCookie } = useUserStore();
@@ -85,7 +86,7 @@ function MyNav() {
                     onClick={() => setActive(false)}
                   >
                     <Link
-                      className="text-black transition hover:text-gray-500/75 "
+                      className="text-black text-base    transition hover:text-gray-500/75 "
                       href={Element.path}
                     >
                       {Element.name}
@@ -96,7 +97,7 @@ function MyNav() {
                   <>
                     <li className="p-2" onClick={() => setActive(false)}>
                       <Link
-                        className="text-black transition hover:text-gray-500/75"
+                        className="text-black transition hover:text-gray-500/75 text-base "
                         href="/signUp"
                       >
                         Sign UP
@@ -104,7 +105,7 @@ function MyNav() {
                     </li>
                     <li className="p-2" onClick={() => setActive(false)}>
                       <Link
-                        className="text-black transition hover:text-gray-500/75"
+                        className="text-black transition hover:text-gray-500/75 text-base  "
                         href="/login"
                       >
                         Login
@@ -112,6 +113,9 @@ function MyNav() {
                     </li>
                   </>
                 )}
+                <li className=" ml-auto ">
+                  <SearchBar />
+                </li>
               </ul>
             </nav>
           </div>
@@ -152,16 +156,6 @@ function MyNav() {
                   }`}
                   role="menu"
                 >
-                  <div className="p-2">
-                    <Link
-                      href="profile"
-                      className="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
-                      role="menuitem"
-                    >
-                      My profile
-                    </Link>
-                  </div>
-
                   <div className="p-2">
                     <button
                       className="flex w-full items-center gap-2 rounded-lg px-4 py-2 text-sm text-red-700 hover:bg-red-50"

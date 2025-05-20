@@ -260,8 +260,7 @@ function Footer() {
             </div>
           </div>
         </div>
-
-        <p className="text-xs ">
+        <p className="text-xs  text-center mt-10">
           &copy; 2022. Company Name. All rights reserved.
         </p>
       </div>
