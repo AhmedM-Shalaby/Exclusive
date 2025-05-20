@@ -113,7 +113,7 @@ function MyNav() {
                     </li>
                   </>
                 )}
-                <li className=" ml-auto ">
+                <li className=" md:ml-auto ">
                   <SearchBar />
                 </li>
               </ul>
