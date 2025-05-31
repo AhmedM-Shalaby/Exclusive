@@ -9,7 +9,7 @@ export async function middleware(request) {
     const path = request.nextUrl.pathname;
     const publicRoutes = ['/', '/products', '/about'];
     const guestOnlyRoutes = ['/login', '/signUp',];
-    const protectedRoutes = ["/wishlist", "/cart"]
+    const protectedRoutes = ["/wishlist", "/cart", "/profile"]
 
     if (token && guestOnlyRoutes.includes(path)) {
         return NextResponse.redirect(new URL('/', request.url));
@@ -23,5 +23,5 @@ export async function middleware(request) {
 }
 
 export const config = {
-    matcher: ['/', '/products', '/about', '/login', '/signUp', '/wishlist', '/cart'],
+    matcher: ['/', '/products', '/about', '/login', '/signUp', '/wishlist', '/cart', "/profile"],
 };

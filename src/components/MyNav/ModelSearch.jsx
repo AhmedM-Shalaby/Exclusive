@@ -1,6 +1,6 @@
 "use client";
-import { getAllProducts } from "@/api/getAllProducts";
-import { useSearch } from "@/store/seach";
+import { getAllProducts } from "@/app/actions/products/getAllProducts";
+import { useSearch } from "@/store/seach_store";
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";

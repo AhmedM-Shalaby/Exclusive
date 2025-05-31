@@ -19,19 +19,23 @@ function Login() {
   };
   const onSubmit = async (values) => {
     const data = await loginUser(values);
-    console.log(10);
-    console.log(data);
+    console.log(values);
 
     if (data.message == "success") {
       Cookies.set("token", data.token, { expires: 7, path: "/" });
+      Cookies.set("user", JSON.stringify(data.user), { expires: 7, path: "/" });
+
       const name = data.user.name.split(" ").slice(0, 1).join(" ");
+
       setToken(data.token);
       toast.success(`${data.message} welcome Back ${name}`);
       router.push("/");
     } else {
-      console.log(data);
-
-      toast.error(`${data.message}  `);
+      toast.error(`${data.message}  `, {
+        autoClose: false,
+      });
+      MyForm.errors.password = data.message;
+      MyForm.errors.email = data.message;
     }
   };
 

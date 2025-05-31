@@ -1,4 +1,4 @@
-import getProduct from "@/api/getProduct";
+import getProduct from "@/app/actions/products/getProduct";
 import Breadcrumb from "@/components/Breadcrumb/Breadcrumb";
 import SectionCreateion from "@/components/sections/CreateContent/CreationSection";
 import BestSelling from "@/components/sections/Home/BestSelling";

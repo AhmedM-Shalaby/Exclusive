@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import "./style.css";
 import { useFormik } from "formik";
 import { inputSort } from "../constant";
-import { gatCategoy } from "@/api/getCategory";
+import { gatCategoy } from "@/app/actions/products/getCategory";
 import { useRouter } from "next/navigation";
 import MyButtons from "@/components/MyButton/MyButton";
 import { BiFilterAlt } from "react-icons/bi";

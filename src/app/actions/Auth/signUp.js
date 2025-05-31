@@ -1,7 +1,7 @@
 
 "use server"
 
-import { fetchServerData } from "@/api/httpHelper";
+import { fetchServerData } from "@/utils/httpHelper";
 
 export const signUP = async (values) => {
     const ENDPOINT = `/auth/signup`

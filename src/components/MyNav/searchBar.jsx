@@ -1,5 +1,5 @@
 "use client";
-import { useSearch } from "@/store/seach";
+import { useSearch } from "@/store/seach_store";
 import { CiSearch } from "react-icons/ci";
 function SearchBar() {
   const { isSearch, setIsSearch } = useSearch();

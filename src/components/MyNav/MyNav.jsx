@@ -34,7 +34,7 @@ function MyNav() {
     const handleScroll = () => setScrolled(window.scrollY > 100);
     window.addEventListener("scroll", handleScroll);
 
-    // Initialize token from cookie + fetch wishlist (مرة واحدة بس)
+    // Initialize token from cookie + fetch wishlist + fetch Cart
     initTokenFromCookie();
     if (token) {
       fetchWishList(token);
@@ -156,6 +156,15 @@ function MyNav() {
                   }`}
                   role="menu"
                 >
+                  <div className="p-2">
+                    <Link
+                      href="profile"
+                      className="block rounded-lg px-4 py-2 text-sm text-gray-500 hover:bg-gray-50 hover:text-gray-700"
+                      role="menuitem"
+                    >
+                      My profile
+                    </Link>
+                  </div>
                   <div className="p-2">
                     <button
                       className="flex w-full items-center gap-2 rounded-lg px-4 py-2 text-sm text-red-700 hover:bg-red-50"

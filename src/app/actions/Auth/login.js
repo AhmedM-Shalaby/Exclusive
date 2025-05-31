@@ -1,6 +1,6 @@
 "use server"
 
-import { fetchServerData } from "@/api/httpHelper"
+import { fetchServerData } from "@/utils/httpHelper"
 
 export const loginUser = async (values) => {
     const ENDPOINT = `/auth/signin`

@@ -1,6 +1,6 @@
 "use server"
 import { revalidateTag } from "next/cache";
-import { fetchServerData } from "../../../api/httpHelper";
+import { fetchServerData } from "../../../utils/httpHelper";
 
 async function clearUserCart(token) {
     const ENDPOINT = `/cart`

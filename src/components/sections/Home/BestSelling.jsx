@@ -1,5 +1,5 @@
 import MySlider from "@/components/slider/slider";
-import { getBestSelling } from "@/api/getBestSelling";
+import { getBestSelling } from "@/app/actions/products/getBestSelling";
 import Link from "next/link";
 import MyButtons from "../../MyButton/MyButton";
 import Card from "@/components/Products/Card/Card";

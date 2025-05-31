@@ -16,7 +16,9 @@ async function Cart() {
   const cookiesStore = await cookies();
   const tokenCookie = cookiesStore.get("token");
   const token = tokenCookie?.value;
+
   const userCart = await getUserCart(token);
+  console.log(userCart);
 
   return (
     <div className="container m-auto py-8 px-4 min-h-[900px]">

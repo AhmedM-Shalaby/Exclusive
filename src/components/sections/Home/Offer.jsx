@@ -1,4 +1,4 @@
-import { gatCategoy } from "@/api/getCategory";
+import { gatCategoy } from "@/app/actions/products/getCategory";
 import Image from "next/image";
 import Link from "next/link";
 

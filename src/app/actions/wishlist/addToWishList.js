@@ -1,6 +1,6 @@
 "use server"
 import { revalidateTag } from "next/cache";
-import { fetchServerData } from "../../../api/httpHelper";
+import { fetchServerData } from "../../../utils/httpHelper";
 
 async function addToWishlist(id, token) {
     const ENDPOINT = `/wishlist`

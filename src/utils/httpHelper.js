@@ -1,4 +1,5 @@
-export const BaseUrl = "https://ecommerce.routemisr.com/api/v1"
+// const BaseUrl = "https://ecommerce.routemisr.com/api/v1"
+const BaseUrl = "https://localhost:4000/api/v1"
 
 export async function fetchServerData(endpoint, options = {}, tags = []) {
     const URL = `${BaseUrl}${endpoint}`
@@ -14,10 +15,13 @@ export async function fetchServerData(endpoint, options = {}, tags = []) {
 
     const res = await fetch(URL, apiOptions);
     const data = await res.json();
+    // console.log(data);
+
 
     // const endTime = performance.now();
     // const duration = endTime - startTime;
     // console.log(`✅ [fetchServerData] ${endpoint} took ${duration.toFixed(2)} ms`);
+
     // if (!res.ok) {
     //     throw new Error(`Fetch failed: ${res.status} ${res.statusText} ${data.errors?.msg}`);
     // }

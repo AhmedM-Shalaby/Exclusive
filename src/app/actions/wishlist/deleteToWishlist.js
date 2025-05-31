@@ -1,5 +1,5 @@
 "use server"
-import { fetchServerData } from "@/api/httpHelper";
+import { fetchServerData } from "@/utils/httpHelper";
 import { revalidateTag } from "next/cache";
 
 

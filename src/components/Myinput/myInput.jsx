@@ -1,10 +1,4 @@
 function Myinput({ type, name, holder, func }) {
-  // const getAutoComplete = () => {
-  //   if (type === "password") {
-  //     return "current-password";
-  //   }
-  //   return "";
-  // };
   return (
     <div>
       <input

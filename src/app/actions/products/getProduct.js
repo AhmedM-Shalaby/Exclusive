@@ -1,4 +1,4 @@
-import { fetchServerData } from "./httpHelper";
+import { fetchServerData } from "../../../utils/httpHelper";
 
 async function getProduct(id) {
     const ENDPOINT = `/products/${id}`

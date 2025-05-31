@@ -1,4 +1,4 @@
-import { getAllProducts } from "@/api/getAllProducts";
+import { getAllProducts } from "@/app/actions/products/getAllProducts";
 import Card from "@/components/Products/Card/Card";
 import SliderGrid from "@/components/slider/silderGrid";
 

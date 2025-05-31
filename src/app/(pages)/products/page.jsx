@@ -1,4 +1,4 @@
-import { getAllProducts } from "@/api/getAllProducts";
+import { getAllProducts } from "@/app/actions/products/getAllProducts";
 import MyPagination from "@/components/Pagination/Pagination";
 import Card from "@/components/Products/Card/Card";
 import FilterPoducts from "@/components/Products/Filter/FilterProducts";
