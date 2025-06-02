@@ -36,7 +36,7 @@ export default function RootLayout({ children }) {
         </div>
         <ToastContainer
           position="bottom-right"
-          autoClose={1000}
+          autoClose={1500}
           hideProgressBar={false}
           newestOnTop={false}
           closeOnClick={false}

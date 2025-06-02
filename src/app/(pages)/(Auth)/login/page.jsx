@@ -22,7 +22,7 @@ function Login() {
     if (data.token) {
       Cookies.set("token", data.token, { expires: 7, path: "/" });
       setToken(data.token);
-      toast.success(`${data.message}`, { autoClose: false });
+      toast.success(`${data.message}`);
       router.push("/");
     } else {
       toast.error(`${data.message}  `, {
