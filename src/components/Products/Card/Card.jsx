@@ -55,7 +55,7 @@ function Card({ product }) {
           {title.split(" ").slice(0, 3).join(" ")}
         </p>
         <p className="text-md font-semibold text-gray-400">
-          Collection : {category.name}
+          Collection : {category?.name}
         </p>
         <div className="price">
           <div>
@@ -66,7 +66,7 @@ function Card({ product }) {
               <span className="old line-through text-gray-400">${price}</span>
             ) : null}
           </div>
-          <div>
+          <div className="flex gap-4">
             <TiStarFullOutline size={25} className="text-yellow-300" />
             <p className="text-gray-400">({ratingsAverage})</p>
           </div>

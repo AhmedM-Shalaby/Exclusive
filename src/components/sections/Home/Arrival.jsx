@@ -50,7 +50,7 @@ function Arrival() {
       <div className="flex flex-col justify-between gap-6 w-full">
         {/* Women's Collections */}
         <div className="bg-black rounded-md h-full relative flex items-center">
-          <div className="absolute inset-0 z-0 overflow-hidden">
+          <div className="absolute inset-0 z-0 overflow-hidden p-6">
             <Link href="/products">
               <Image
                 src="/women.jpg"
@@ -76,8 +76,8 @@ function Arrival() {
         {/* Speakers & Perfume */}
         <div className="flex flex-col md:flex-row gap-6">
           {/* Speaker */}
-          <div className="bg-black rounded-md h-[200px] flex-1 relative flex items-center">
-            <div className="absolute inset-0 z-0 overflow-hidden">
+          <div className="bg-black rounded-md h-[200px] flex-1 relative flex items-center p-6">
+            <div className="absolute inset-0 z-0 overflow-hidden ">
               <Link href="/products">
                 <Image
                   src="/speakers.png"
@@ -101,7 +101,7 @@ function Arrival() {
           </div>
 
           {/* Perfume */}
-          <div className="bg-black rounded-md h-[200px] flex-1 relative flex items-center">
+          <div className="bg-black rounded-md h-[200px] flex-1 relative flex items-center p-6">
             <div className="absolute inset-0 z-0 overflow-hidden">
               <Link href="/products">
                 <Image

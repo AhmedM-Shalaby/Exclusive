@@ -4,7 +4,7 @@ async function getProduct(id) {
     const ENDPOINT = `/products/${id}`
     const res = fetchServerData(ENDPOINT)
     const data = await res
-    return product.data
+    return data.data
 }
 
 export default getProduct;

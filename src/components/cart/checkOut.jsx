@@ -45,7 +45,7 @@ function CheckOut({ subtotal }) {
           onClick={handleOrder}
           className="bg-red-500 text-white px-4 py-2 rounded self-start"
         >
-          Proceed to checkout
+          Checkout
         </button>
       </div>
     </div>

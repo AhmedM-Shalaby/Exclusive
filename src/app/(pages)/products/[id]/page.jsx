@@ -16,6 +16,8 @@ export default async function productID(props) {
   const params = await props.params;
   const id = params.id;
   const product = await getProduct(id);
+  console.log(product);
+
   // if (product == undefined) {
   //   throw new Error(
   //     `Fetch failed: ${prstatusoduct.} ${product.statusText} ${product.errors?.msg}`
@@ -46,7 +48,7 @@ export default async function productID(props) {
                     key={index}
                     size={25}
                     className={`${
-                      index < product.ratingsAverage
+                      index < Math.floor(product.ratingsAverage)
                         ? "text-yellow-300"
                         : "text-gray-400"
                     }`}
