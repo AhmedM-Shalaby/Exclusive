@@ -25,9 +25,7 @@ function Login() {
       toast.success(`${data.message}`);
       router.push("/");
     } else {
-      toast.error(`${data.message}  `, {
-        autoClose: false,
-      });
+      toast.error(`${data.message}  `);
       MyForm.errors.password = data.message;
       MyForm.errors.email = data.message;
     }

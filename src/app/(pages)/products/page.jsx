@@ -25,7 +25,7 @@ async function products({ searchParams }) {
         </div>
 
         <>
-          <FilterPoducts limitLength={results} />
+          <FilterPoducts />
         </>
       </div>
       <div className="mb-10">

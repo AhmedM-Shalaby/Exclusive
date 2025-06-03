@@ -8,23 +8,23 @@ import { useRouter } from "next/navigation";
 import MyButtons from "@/components/MyButton/MyButton";
 import { BiFilterAlt } from "react-icons/bi";
 import { CgCloseR } from "react-icons/cg";
+import PriceRangeSlider from "./PriceRange";
 
-function FilterPoducts({ limitLength }) {
+function FilterPoducts() {
   const [categories, setCategories] = useState([]);
-
   const [active, setActive] = useState(false);
   const router = useRouter();
   const initialValues = {
-    rangeLimit: "8",
+    minPrice: "0",
+    maxPrice: "10000",
     sortBy: "",
     category: "",
   };
 
   const onSubmit = (values) => {
+    console.log(values);
+
     const params = new URLSearchParams();
-
-    params.append("limit", values.rangeLimit);
-
     if (values.sortBy) {
       params.append("sort", values.sortBy);
     }
@@ -41,28 +41,10 @@ function FilterPoducts({ limitLength }) {
     initialValues,
     onSubmit,
   });
-  const { handleChange, values } = MyFilterForm;
-  useEffect(() => {
-    const slider = document.getElementById("rangeLimit");
-    if (slider) {
-      const percentage =
-        ((values?.rangeLimit - slider.min) / (slider.max - slider.min)) * 100;
-
-      slider.style.background = `
-      linear-gradient(
-        to right,
-        var(--main-color) 0%,
-        var(--main-color) ${percentage}%,
-        #d1d5db ${percentage}%,
-        #d1d5db 100%
-      )
-    `;
-    }
-  }, [values.rangeLimit]);
+  const { handleChange, values, setFieldValue } = MyFilterForm;
   useEffect(() => {
     async function fetchData() {
       const data = await gatCategoy();
-
       setCategories(data.data);
     }
     fetchData();
@@ -85,25 +67,11 @@ function FilterPoducts({ limitLength }) {
       </div>
       <form onSubmit={MyFilterForm.handleSubmit}>
         <div>
-          <div className="w-full  mx-auto mt-10 mb-6">
-            <h4 className="text-lg font-semibold mb-4">
-              Limit To See In Page{" "}
-              <span className="font-bold text-[var(--main-color)]">
-                (
-                {values.rangeLimit == limitLength - 1
-                  ? "Max"
-                  : values.rangeLimit}
-                )
-              </span>
-            </h4>
-            <input
-              type="range"
-              min="6"
-              max={limitLength - 1}
-              value={values.rangeLimit}
-              id="rangeLimit"
-              className=" h-2 rounded-lg appearance-none cursor-pointer bg-gray-300 w-full"
-              onChange={handleChange}
+          <div>
+            <PriceRangeSlider
+              minValue={values.minPrice}
+              maxValue={values.maxPrice}
+              handleChange={handleChange}
             />
           </div>
           <div className="mb-6">

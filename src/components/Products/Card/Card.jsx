@@ -16,6 +16,7 @@ function Card({ product }) {
     ratingsAverage,
     sold,
   } = product;
+
   return (
     <div className=" group">
       <div className=" relative truncate mb-4 rounded-b-[10px]">
@@ -51,25 +52,25 @@ function Card({ product }) {
         <ButtonCart id={_id} />
       </div>
       <div className="content">
-        <p className="text-xl font-semibold">
-          {title.split(" ").slice(0, 3).join(" ")}
-        </p>
+        <div className="flex  justify-between">
+          <p className="text-xl font-semibold">
+            {title.split(" ").slice(0, 3).join(" ")}
+          </p>
+          <div className="flex ">
+            <TiStarFullOutline size={25} className="text-yellow-300" />
+            <p className="text-gray-400">({ratingsAverage})</p>
+          </div>
+        </div>
         <p className="text-md font-semibold text-gray-400">
           Collection : {category?.name}
         </p>
         <div className="price">
-          <div>
-            <p className="text-[var(--main-color)] font-semibold">
-              price : ${priceAfterDiscount ? priceAfterDiscount : price}
-            </p>
-            {priceAfterDiscount ? (
-              <span className="old line-through text-gray-400">${price}</span>
-            ) : null}
-          </div>
-          <div className="flex gap-4">
-            <TiStarFullOutline size={25} className="text-yellow-300" />
-            <p className="text-gray-400">({ratingsAverage})</p>
-          </div>
+          <p className="text-[var(--main-color)] font-semibold">
+            price : ${priceAfterDiscount ? priceAfterDiscount : price}
+          </p>
+          {priceAfterDiscount ? (
+            <span className="old line-through text-gray-400">${price}</span>
+          ) : null}
         </div>
       </div>
     </div>

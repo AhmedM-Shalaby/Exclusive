@@ -1,9 +1,8 @@
 "use server"
-import { fetchServerData } from "../../../utils/httpHelper";
+import { fetchServerData } from "@/utils/httpHelper";
 
 async function getUserWishlist(token) {
     const ENDPOINT = `/wishlist`
-
     const options = {
         method: "GET",
         headers: {

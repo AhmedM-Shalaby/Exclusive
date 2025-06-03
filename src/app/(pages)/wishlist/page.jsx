@@ -9,7 +9,6 @@ async function page() {
   const token = tokenCookie?.value;
 
   const data = await getUserWishlist(token);
-  console.log(data);
 
   return (
     <div className={`container m-auto p-4 `}>
