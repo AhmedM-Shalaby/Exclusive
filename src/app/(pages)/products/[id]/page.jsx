@@ -16,14 +16,6 @@ export default async function productID(props) {
   const params = await props.params;
   const id = params.id;
   const product = await getProduct(id);
-  console.log(product);
-
-  // if (product == undefined) {
-  //   throw new Error(
-  //     `Fetch failed: ${prstatusoduct.} ${product.statusText} ${product.errors?.msg}`
-  //   );
-  // }
-
   const crumbs = [
     { name: "Home", path: "/" },
     { name: "products", path: "/products" },
@@ -87,7 +79,7 @@ export default async function productID(props) {
             </div>
 
             <div className="flex justify-center items-center gap-4">
-              <ActionSingleProduct id={id} />
+              <ActionSingleProduct productId={id} />
             </div>
             <div className="border border-black cursor-pointer">
               <div className="flex justify-around items-center p-4">

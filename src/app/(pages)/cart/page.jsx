@@ -96,9 +96,7 @@ async function Cart() {
               </div>
             </>
           ) : (
-            <NoCard
-              message={`Your Cart IS Empty (${userCart.numOfCartItems})`}
-            />
+            <NoCard />
           )}
         </div>
       </div>

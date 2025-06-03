@@ -49,7 +49,7 @@ function Card({ product }) {
         ) : (
           ""
         )}
-        <ButtonCart id={_id} />
+        <ButtonCart productId={_id} />
       </div>
       <div className="content">
         <div className="flex  justify-between">

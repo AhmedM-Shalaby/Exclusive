@@ -3,11 +3,10 @@ import { useUserStore } from "@/store/user_store";
 import { toast } from "react-toastify";
 import { useCartStore } from "@/store/cart_store";
 import { useRouter } from "next/navigation";
-import addToCart from "@/app/actions/cart/addToCart";
 
-function ButtonCart({ id }) {
+function ButtonCart({ productId }) {
   const { token } = useUserStore();
-  const { setNumOfCartItems } = useCartStore();
+  const { fireActionAdd } = useCartStore();
   const router = useRouter();
 
   const handleClick = async () => {
@@ -16,15 +15,7 @@ function ButtonCart({ id }) {
       router.replace("/login");
       return;
     }
-    if (token) {
-      const body = {
-        productId: id,
-        count: 1,
-      };
-      const res = await addToCart(body, token);
-      toast.success(res.message);
-      setNumOfCartItems(res.numOfCartItems);
-    }
+    fireActionAdd({ productId }, token);
   };
   return (
     <button

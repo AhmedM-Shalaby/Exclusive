@@ -1,6 +1,6 @@
 const PriceRangeSlider = ({ minValue, maxValue, handleChange }) => {
   const minGap = 1000;
-  const maxRange = 10000;
+  const maxRange = 50000;
 
   const handleMinChange = (e) => {
     const value = Math.min(Number(e.target.value), Number(maxValue) - minGap);
